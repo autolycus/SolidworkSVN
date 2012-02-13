@@ -1,0 +1,27 @@
+﻿<Window x:Class="SolidSVN.SvnErrorDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SvnErrorDialog" Height="300" Width="300">
+    <Grid>
+        <DockPanel>
+            <DockPanel DockPanel.Dock="Top"> 
+                <TextBlock DockPanel.Dock="Left" Margin="10,10,10,10">Error while attempting to: </TextBlock>
+                <TextBlock Name="action_desc" DockPanel.Dock="Left" Margin="10,10,10,10"> Action</TextBlock>
+            </DockPanel>   
+        
+            <DockPanel DockPanel.Dock="Top">
+            <!-- Add Display of error Parameters Here-->
+                <TextBlock DockPanel.Dock="Left" Margin="10,0,10,0">Error: </TextBlock>
+                <TextBlock Name="error_name"> Error Text</TextBlock>
+            </DockPanel>
+            <DockPanel DockPanel.Dock="Top">
+                <!-- Add Display of error Parameters Here-->
+                <TextBlock DockPanel.Dock="Left" Margin="10,0,10,0">File:</TextBlock>
+                <TextBlock Name="file_name"> File Text</TextBlock>
+            </DockPanel>
+
+            <Button DockPanel.Dock="Top" Margin="10,10,10,10" Width="40" Height="20">Ok</Button>
+            
+        </DockPanel>            
+    </Grid>
+</Window>

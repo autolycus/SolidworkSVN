@@ -1,0 +1,13 @@
+﻿<Window x:Class="SolidSVN.RepoUpdateView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="RepoUpdateView" Height="175" Width="300">
+    <Grid>
+        <DockPanel> 
+            <TextBlock Margin="10,10,10,10" Name="_description" DockPanel.Dock="Top">Updating the local repository...</TextBlock>            
+            <ProgressBar Name="_progress_bar" DockPanel.Dock="Top" Height="20" Margin="10,10,10,10" ></ProgressBar>            
+            <Button DockPanel.Dock="Left" Name="_cancel" Click="on_cancel" Width="40" Height="30">Cancel</Button>            
+        </DockPanel>
+        
+    </Grid>
+</Window>

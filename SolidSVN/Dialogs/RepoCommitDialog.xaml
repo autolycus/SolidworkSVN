@@ -1,0 +1,64 @@
+﻿<Window x:Class="SolidSVN.RepoCommitDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:s="clr-namespace:SolidSVN"
+        Title="RepoCommitDialog" Height="400" Width="400">
+    <Grid>
+        <StackPanel>
+            <DockPanel>
+                <TextBlock DockPanel.Dock="Left">Commiting: </TextBlock>
+                <TextBlock Name="_commit_desc" DockPanel.Dock="Left"> Files </TextBlock>
+            
+            </DockPanel>
+            <!-- This object will contain a tree list showing the 
+                files that are selected to be commited -->
+            <s:TreeList Height="250"
+                x:Name="_treeList" Width="300"
+				ItemContainerStyle="{StaticResource TreeListItemNodeStyle}">                                                
+
+                <s:TreeList.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <s:RowExpander/>
+                            <Border Focusable="True" BorderThickness="{TemplateBinding Border.BorderThickness}" 
+								    Padding="{TemplateBinding Control.Padding}" 
+								    BorderBrush="{TemplateBinding Border.BorderBrush}" 
+								    Background="{TemplateBinding Panel.Background}" 
+								    Name="Bd" 
+								    SnapsToDevicePixels="True">
+                                <TextBlock Text="{Binding Name}"></TextBlock>
+                            </Border>
+                        </StackPanel>
+                        <DataTemplate.Triggers>
+                            <DataTrigger Binding="{Binding IsSelected, RelativeSource={RelativeSource AncestorType={x:Type s:TreeListItem}}}" 
+									 Value="True">
+                                <Setter Property="Background" TargetName="Bd">
+                                    <Setter.Value>
+                                        <DynamicResource ResourceKey="{x:Static SystemColors.HighlightBrushKey}" />
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="TextElement.Foreground">
+                                    <Setter.Value>
+                                        <DynamicResource ResourceKey="{x:Static SystemColors.HighlightTextBrushKey}" />
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                        </DataTemplate.Triggers>
+                    </DataTemplate>
+                </s:TreeList.ItemTemplate>
+
+            </s:TreeList>
+            
+            <!-- <DataGrid Margin="10,10,10,10" Height="250" ItemsSource ="{Binding CommitEntityList}"/> -->
+
+            <CheckBox Name="release_locks" IsChecked="True">Release All Locks?</CheckBox>
+            <DockPanel>                
+                <Button Margin="10,10,10,10" DockPanel.Dock="Left" Height="20" Width="60"  Name="commit_button" Click="on_commit">Commit</Button>
+                <Button DockPanel.Dock="Left" Height="20" Width="60" Name="cancel_button" Click="on_cancel">Cancel</Button>
+                <ProgressBar Margin="10,10,10,10" Name="commit_progress_bar" Value="0"></ProgressBar>
+            </DockPanel>
+            
+        </StackPanel>            
+            
+    </Grid>
+</Window>

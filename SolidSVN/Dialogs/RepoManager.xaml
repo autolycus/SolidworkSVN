@@ -1,0 +1,29 @@
+﻿<Window x:Class="SolidSVN.Dialogs.RepoManager"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="RepoManager" Height="300" Width="300">
+    <Grid>
+        <StackPanel>                    
+            <DockPanel>
+                <StackPanel Margin="10,10,10,10" DockPanel.Dock="Left">
+                    <TextBlock > Repository List</TextBlock>
+                    <ListView Name="_repo_list">
+                        
+                    </ListView>
+                </StackPanel>
+                <StackPanel Margin="10,10,10,10" DockPanel.Dock="Left">
+                    <TextBlock>Properties:</TextBlock>
+                    <DataGrid>                        
+                    </DataGrid>
+                </StackPanel>
+            </DockPanel>
+            <DockPanel>
+                <Button Margin="5,0,0,0" DockPanel.Dock="Left" Width="60" Name="add_button" Click="on_add_repo">Add</Button>
+                <Button Margin="5,0,0,0" DockPanel.Dock="Left" Width="60" Name="edit_button" Click="on_edit_repo">Edit</Button>
+                <Button Margin="5,0,0,0" DockPanel.Dock="Left" Width="60" Name="remove_button" Click="on_remove_repo">Remove</Button>
+                <Button DockPanel.Dock="Right" Width="60" Name="done_button" Click="on_save_and_close">Done</Button>
+            </DockPanel>
+        </StackPanel>
+        
+    </Grid>
+</Window>
